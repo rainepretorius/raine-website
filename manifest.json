@@ -1,0 +1,37 @@
+{
+  "name": "Raine Pretorius",
+  "short_name": "Raine Pretorius",
+  "theme_color": "#307672",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "description": "I am a passionate person. I am passionate about my work and hobbies. I love programming.  I am also passionate about helping other people. I work with Mosaiek's Technical team on Sundays. I am Sound Engineer for the service. This site is my most up to date Curriculum Vitae.",
+  "icons": [
+    {
+      "src": "https://static1.s123-cdn-static-a.com/uploads/3996662/800_5f22ad7425bd3.jpg",
+      "type": "image/png",
+      "sizes": "196x196",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://static1.s123-cdn-static-a.com/uploads/3996662/800_5f22ad7425bd3.jpg",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://static1.s123-cdn-static-a.com/uploads/3996662/800_5f22ad7425bd3.jpg",
+      "type": "image/png",
+      "sizes": "196x196",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://static1.s123-cdn-static-a.com/uploads/3996662/800_5f22ad7425bd3.jpg",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}
