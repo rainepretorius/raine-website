@@ -1,4 +1,11 @@
 /* ########################################## css.php ########################################## */
+.timeline-i {
+    margin-top: 8px;
+    mask: url("https://static1.s123-cdn-static-a.com/ready_uploads/svg/check.svg?v=2"); 
+    -webkit-mask: url("https://static1.s123-cdn-static-a.com/ready_uploads/svg/check.svg?v=2");
+    color: whitesmoke !important;
+    background-color: whitesmoke !important;
+}
 
 html,
 body {
