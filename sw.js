@@ -16,8 +16,8 @@ Copyright 2015, 2019, 2020, 2021 Google LLC. All Rights Reserved.
 // This variable is intentionally declared and unused.
 // Add a comment for your linter if you want:
 // eslint-disable-next-line no-unused-vars
-const OFFLINE_VERSION = 1;
-const CACHE_NAME = "raine_offline";
+const OFFLINE_VERSION = 2;
+const CACHE_NAME = "raine_offline_v2";
 // Customize this with a different URL if needed.
 const OFFLINE_URL = ['/'];
 
