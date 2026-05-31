@@ -449,12 +449,7 @@
     .img-frame   {
       position: relative; border-radius: 24px; overflow: hidden;
     }
-    .img-frame::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(37,99,235,.25), rgba(6,182,212,.15));
-      pointer-events: none;
-    }
-    .img-frame img { width:100%; filter:grayscale(15%) contrast(108%); }
+    .img-frame img { width:100%; }
 
     .float-card {
       position: absolute; border-radius: 14px;
@@ -752,12 +747,12 @@
       <div class="nav-inner">
         <a href="#page-top" class="nav-logo" aria-label="Home">RP</a>
         <ul class="nav-links" role="list">
-          <li><a href="#about"    data-section="about">About</a></li>
-          <li><a href="#roles"    data-section="roles">Work</a></li>
-          <li><a href="#skills"   data-section="skills">Skills</a></li>
-          <li><a href="#timeline" data-section="timeline">Timeline</a></li>
-          <li><a href="#hobbies"  data-section="hobbies">Hobbies</a></li>
-          <li><a href="#contact"  data-section="contact" class="nav-cta">Contact Me</a></li>
+          <li><a href="#about"                    data-section="about">About</a></li>
+          <li><a href="#roles"                    data-section="roles">Work</a></li>
+          <li><a href="/my-skills/"               data-section="skills">Skills</a></li>
+          <li><a href="/education-experience-1/"  data-section="timeline">Timeline</a></li>
+          <li><a href="/hobbies/"                 data-section="hobbies">Hobbies</a></li>
+          <li><a href="/contact/"                 data-section="contact" class="nav-cta">Contact Me</a></li>
         </ul>
         <button class="hamburger" onclick="openMenu()" aria-label="Open navigation menu" aria-expanded="false">
           <i class="fas fa-bars"></i>
@@ -771,12 +766,12 @@
     <button class="mob-close" onclick="closeMenu()" aria-label="Close navigation menu">
       <i class="fas fa-times"></i>
     </button>
-    <a href="#about"    onclick="closeMenu()">About Me</a>
-    <a href="#roles"    onclick="closeMenu()">Where I Work</a>
-    <a href="#skills"   onclick="closeMenu()">My Skills</a>
-    <a href="#timeline" onclick="closeMenu()">Timeline</a>
-    <a href="#hobbies"  onclick="closeMenu()">Hobbies</a>
-    <a href="#contact"  onclick="closeMenu()">Contact Me</a>
+    <a href="#about"                   onclick="closeMenu()">About Me</a>
+    <a href="#roles"                   onclick="closeMenu()">Where I Work</a>
+    <a href="/my-skills/"              onclick="closeMenu()">My Skills</a>
+    <a href="/education-experience-1/" onclick="closeMenu()">Timeline</a>
+    <a href="/hobbies/"                onclick="closeMenu()">Hobbies</a>
+    <a href="/contact/"                onclick="closeMenu()">Contact Me</a>
   </div>
 
   <!-- ════════════════════════════════════════ HERO -->
@@ -997,8 +992,9 @@
           <div class="sk-icon"><i class="fas fa-sitemap" aria-hidden="true"></i></div>
           <div>
             <div class="sk-name">Solutions Architecture</div>
-            <div class="sk-desc">Cloud-ready system design, microservices &amp; technical strategy.</div>
+            <div class="sk-desc">Smart home system design, integration &amp; technical strategy.</div>
             <div class="sk-track"><div class="sk-fill" data-w="90"></div></div>
+            <a href="/my-skills/solutions-architecture/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="sk-card glass c-blue" data-aos="fade-up" data-aos-delay="80">
@@ -1016,6 +1012,7 @@
             <div class="sk-name">C# &amp; ASP.NET</div>
             <div class="sk-desc">Enterprise-grade backends and APIs in the .NET ecosystem.</div>
             <div class="sk-track"><div class="sk-fill" data-w="87"></div></div>
+            <a href="/my-skills/asp-dot-net/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="sk-card glass c-amber" data-aos="fade-up" data-aos-delay="160">
@@ -1100,6 +1097,7 @@
             </div>
             <div class="tl-date">August 2025 &ndash; Present</div>
             <div class="tl-desc">Founded LocknAlert — a smart security company delivering real-time protection solutions. Leading all aspects of the business: product, technology, team, and growth strategy.</div>
+            <a href="https://locknalert.co.za" target="_blank" rel="noopener noreferrer" class="tl-more" style="color:var(--cyanL);">Visit LocknAlert <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
 
@@ -1114,6 +1112,7 @@
             </div>
             <div class="tl-date">June 2025 &ndash; Present</div>
             <div class="tl-desc">Architecting scalable cloud solutions and defining technical strategy for clients. Bridging business objectives with elegant, maintainable engineering across multiple industries.</div>
+            <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" class="tl-more">Visit Untamed Technologies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>
 
