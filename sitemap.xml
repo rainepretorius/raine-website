@@ -1,214 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <url>
-    <loc>https://raine.pretoriusse.net/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <!-- Core pages -->
+  <url><loc>https://raine.pretoriusse.net/</loc>                                                                             <lastmod>2026-05-31</lastmod><changefreq>weekly</changefreq> <priority>1.0</priority></url>
+  <url><loc>https://raine.pretoriusse.net/about-me/</loc>                                                                    <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://raine.pretoriusse.net/contact/</loc>                                                                     <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url>
-    <loc>https://raine.pretoriusse.net/about-me/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- Skills -->
+  <url><loc>https://raine.pretoriusse.net/my-skills/</loc>                                                                   <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/solutions-architecture/</loc>                                            <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/web-development/</loc>                                                   <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/asp-dot-net/</loc>                                                       <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/python/</loc>                                                            <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/databases/</loc>                                                         <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/java/</loc>                                                              <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/web-design/</loc>                                                        <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/excel-macros-and-vba/</loc>                                              <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/microsoft-excel-data-visualization-charts-graphs/</loc>                 <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://raine.pretoriusse.net/my-skills/digico-certified-sound-engineer/</loc>                                   <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- Education & Experience -->
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/</loc>                                                      <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/sebrus-intern/</loc>                                        <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/mosaiek-intern/</loc>                                       <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/up-student/</loc>                                           <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/grade-12/</loc>                                             <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.5</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/rysis/</loc>                                                <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.6</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/first-aid-level-1/</loc>                                   <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.4</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/complete-python-bootcamp/</loc>                             <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.5</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/complete-sql-bootcamp/</loc>                                <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.5</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/the-complete-2020-web-development-bootcamp/</loc>          <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.5</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/excel-macros-and-vba/</loc>                                <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.4</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/microsoft-excel-data-visualization-excel-charts-graphs/</loc><lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/the-complete-java-certification-course/</loc>              <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.4</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/grade-11/</loc>                                             <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.3</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/grade-10/</loc>                                             <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.3</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/grade-9/</loc>                                              <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.3</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/grade-8/</loc>                                              <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.3</priority></url>
+  <url><loc>https://raine.pretoriusse.net/education-experience-1/grade-7/</loc>                                              <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.3</priority></url>
 
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/web-design/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/web-development/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/python/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/databases/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/excel-macros-and-vba/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/microsoft-excel-data-visualization-charts-graphs/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/digico-certified-sound-engineer/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/my-skills/java/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/untamed-technologies/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/locknalert/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/sebrus-intern/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/mosaiek-intern/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/up-student/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/grade-12/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/rysis/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/first-aid-level-1/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/complete-python-bootcamp/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/complete-sql-bootcamp/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/the-complete-2020-web-development-bootcamp/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/excel-macros-and-vba/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/education-experience-1/the-complete-java-certification-course/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/hobbies/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/hobbies/mountain-biking/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/hobbies/sound-engineering/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/hobbies/programming/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://raine.pretoriusse.net/contact/</loc>
-    <lastmod>2026-05-30</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
+  <!-- Hobbies -->
+  <url><loc>https://raine.pretoriusse.net/hobbies/</loc>                                                                     <lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://raine.pretoriusse.net/hobbies/mountain-biking/</loc>                                                     <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.5</priority></url>
+  <url><loc>https://raine.pretoriusse.net/hobbies/sound-engineering/</loc>                                                   <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.5</priority></url>
+  <url><loc>https://raine.pretoriusse.net/hobbies/programming/</loc>                                                         <lastmod>2026-05-31</lastmod><changefreq>yearly</changefreq> <priority>0.5</priority></url>
 
 </urlset>

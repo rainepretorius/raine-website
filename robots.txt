@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /index_files/
+Disallow: /offline.html
+
+Sitemap: https://raine.pretoriusse.net/sitemap.xml
