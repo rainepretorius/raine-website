@@ -1,0 +1,50 @@
+# Raine Pretorius
+
+> Raine Pretorius is a Solutions Architect at Untamed Technologies and Managing Director & Founder of LocknAlert, based in Johannesburg, South Africa. He is a software engineer, smart home systems architect, and tech entrepreneur.
+
+## Current Positions
+
+- Solutions Architect at [Untamed Technologies](https://untamedtech.co.za) since June 2025 — smart home system design, IoT integration, and technical strategy
+- Managing Director & Founder at [LocknAlert](https://locknalert.co.za) since August 2025 — smart security platform for homes and businesses
+
+## About
+
+- [About Raine Pretorius](https://raine.pretoriusse.net/about-me/): Full biography, background, current roles, and personal story
+
+## Skills
+
+- [Solutions Architecture](https://raine.pretoriusse.net/my-skills/solutions-architecture/): Smart home system design, IoT device integration, Home Assistant, Z-Wave, Zigbee, Matter
+- [Web Development](https://raine.pretoriusse.net/my-skills/web-development/): Blazor, Angular, ASP.NET Core full-stack applications
+- [C# & ASP.NET](https://raine.pretoriusse.net/my-skills/asp-dot-net/): Enterprise-grade backends, REST APIs, Entity Framework, Blazor
+- [Python](https://raine.pretoriusse.net/my-skills/python/): Scripting, automation, data processing, backend services
+- [Databases & SQL](https://raine.pretoriusse.net/my-skills/databases/): Database design, SQL queries, analytics, data extraction
+- [Java](https://raine.pretoriusse.net/my-skills/java/): Standalone and enterprise applications
+- [Web Design](https://raine.pretoriusse.net/my-skills/web-design/): Responsive, pixel-perfect UI/UX design
+- [Excel & VBA](https://raine.pretoriusse.net/my-skills/excel-macros-and-vba/): Macro automation, custom VBA tools, workflow automation
+- [Data Visualization](https://raine.pretoriusse.net/my-skills/microsoft-excel-data-visualization-charts-graphs/): Excel charts, dashboards, and graphs
+- [Sound Engineering](https://raine.pretoriusse.net/my-skills/digico-certified-sound-engineer/): Digico SD5 certified, live sound mixing, broadcast production
+
+## Experience & Education
+
+- [Full Timeline](https://raine.pretoriusse.net/education-experience-1/): Complete career and education history
+- [Sebrus Software — Intern Developer](https://raine.pretoriusse.net/education-experience-1/sebrus-intern/): November 2023 – January 2024, Johannesburg
+- [Mosaiek — Technical Intern](https://raine.pretoriusse.net/education-experience-1/mosaiek-intern/): August – December 2023, Johannesburg
+- [University of Pretoria — BSc IKS](https://raine.pretoriusse.net/education-experience-1/up-student/): February – November 2023
+- [Helpmekaar Kollege — IEB Matric](https://raine.pretoriusse.net/education-experience-1/grade-12/): 2022, Johannesburg
+- [Rysis Software — Intern Developer](https://raine.pretoriusse.net/education-experience-1/rysis/): December 2021 – January 2023, Johannesburg
+
+## Hobbies
+
+- [Mountain Biking](https://raine.pretoriusse.net/hobbies/mountain-biking/): Avid cyclist and trail rider
+- [Sound Engineering](https://raine.pretoriusse.net/hobbies/sound-engineering/): Digico SD5 certified live sound engineer
+- [Programming](https://raine.pretoriusse.net/hobbies/programming/): Builds software for work and for the love of creating
+
+## Contact
+
+- [Contact Page](https://raine.pretoriusse.net/contact/)
+- Email: raine.pretorius1@gmail.com
+- LinkedIn: https://www.linkedin.com/in/raine-pretorius-96a3981b6/
+- Instagram: https://www.instagram.com/rainepretorius/
+- Facebook: https://www.facebook.com/profile.php?id=100012853022485
+- LocknAlert Instagram: https://www.instagram.com/locknalert/
+- Location: Johannesburg, Gauteng, South Africa

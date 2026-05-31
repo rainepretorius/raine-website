@@ -5,3 +5,6 @@ Disallow: /index_files/
 Disallow: /offline.html
 
 Sitemap: https://raine.pretoriusse.net/sitemap.xml
+
+# LLM crawler hints
+# llms.txt: https://raine.pretoriusse.net/llms.txt
