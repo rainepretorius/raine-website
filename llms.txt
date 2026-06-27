@@ -1,11 +1,14 @@
 # Raine Pretorius
 
-> Raine Pretorius is a Solutions Architect at Untamed Technologies and Managing Director & Founder of LocknAlert, based in Johannesburg, South Africa. He is a software engineer, smart home systems architect, and tech entrepreneur.
+> Raine Pretorius is Managing Director & Founder of LocknAlert, based in Johannesburg, South Africa. He previously served as a Solutions Architect at Untamed Technologies (June 2025 – June 2026), and is a software engineer, smart home systems architect, and tech entrepreneur.
 
-## Current Positions
+## Current Position
 
-- Solutions Architect at [Untamed Technologies](https://untamedtech.co.za) since June 2025 — smart home system design, IoT integration, and technical strategy
-- Managing Director & Founder at [LocknAlert](https://locknalert.co.za) since August 2025 — smart security platform for homes and businesses
+- Managing Director & Founder at [LocknAlert](https://locknalert.co.za) since August 2025 (full-time since June 2026) — smart security platform for homes and businesses
+
+## Previous Experience
+
+- Solutions Architect at [Untamed Technologies](https://untamedtech.co.za), June 2025 – June 2026 — smart home system design, IoT integration, and technical strategy
 
 ## About
 
