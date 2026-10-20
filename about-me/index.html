@@ -13,8 +13,7 @@
   <link rel="icon" href="https://cdn1.pretoriusse.net/CDN/Images/raine.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/rp.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172413993-1"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','UA-172413993-1');</script>
@@ -39,12 +38,13 @@
   ]
 }
   </script>
+  <script>if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.classList.add('js-anim');setTimeout(function(){if(!window.__rp)document.documentElement.classList.remove('js-anim')},2500)}</script>
 </head>
 <body>
 <nav id="nav">
   <div class="wrap">
     <div class="nav-inner">
-      <a href="/" class="nav-logo">RP</a>
+      <a href="/" class="nav-logo">Raine Pretorius</a>
       <ul class="nav-links">
         <li><a href="/#about">About</a></li>
         <li><a href="/#roles">Work</a></li>
@@ -67,12 +67,9 @@
   <a href="/contact/" onclick="closeMenu()">Contact Me</a>
 </div>
 <section class="pg-hero">
-  <div class="pg-orb pg-orb-1" aria-hidden="true"></div>
-  <div class="pg-orb pg-orb-2" aria-hidden="true"></div>
   <div class="wrap">
     <div class="breadcrumb-nav"><a href="/">Home</a><span class="breadcrumb-sep">/</span><span>About Me</span></div>
     <div class="pg-hero-inner">
-      <div class="pg-icon "><i class="fas fa-user"></i></div>
       <div>
         <h1 class="pg-title grad-text">About Me</h1>
         <p class="pg-subtitle">Solutions Architect · Founder · Engineer</p>
@@ -83,10 +80,9 @@
 <main>
   <div class="wrap">
     
-<div class="about-grid" data-aos="fade-up">
+<div class="about-grid">
   <div class="about-img">
-    <div style="position:absolute;inset:-2px;border-radius:22px;background:linear-gradient(135deg,#2563eb,#06b6d4);z-index:-1"></div>
-    <img src="https://cdn1.pretoriusse.net/CDN/Images/raine.jpg" alt="Raine Pretorius" loading="lazy">
+    <img src="/assets/img/raine.webp" alt="Raine Pretorius" width="1080" height="1080">
   </div>
   <div class="about-detail">
     <div class="badge"><i class="fas fa-user"></i> About Me</div>
@@ -99,9 +95,9 @@
       <span class="a-badge">Solutions Architecture</span><span class="a-badge">C# &amp; ASP.NET</span><span class="a-badge">Python</span>
       <span class="a-badge">Joburg, ZA</span><span class="a-badge">Startup Founder</span><span class="a-badge">Sound Engineering</span>
     </div>
-    <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap">
-      <a href="/#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
-      <a href="/my-skills/" class="btn btn-outline"><i class="fas fa-code"></i> View My Skills</a>
+    <div class="btn-row">
+      <a href="/#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="/my-skills/" class="btn btn-outline">View My Skills</a>
     </div>
   </div>
 </div>
@@ -111,7 +107,7 @@
   <div class="wrap">
     <div class="ft-inner">
       <div class="ft-logo grad-text">Raine Pretorius</div>
-      <div class="ft-copy">&copy; 2025 Raine Pretorius. All rights reserved.</div>
+      <div class="ft-copy">&copy; 2026 Raine Pretorius. All rights reserved.</div>
       <div class="ft-links">
         <a href="/">Home</a>
         <a href="/my-skills/">Skills</a>
@@ -120,10 +116,8 @@
     </div>
   </div>
 </footer>
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="position:fixed;bottom:28px;right:28px;z-index:200;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;cursor:pointer;font-size:1rem;display:none;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(37,99,235,.5);transition:transform .3s" class="" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
-<script src="https://kit.fontawesome.com/bbc9821be1.js" crossorigin="anonymous" defer></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://kit.fontawesome.com/bbc9821be1.js" crossorigin="anonymous" async></script>
+<script src="/assets/vendor/motion-14.0.0.js" defer></script>
 <script src="/assets/rp.js" defer></script>
-<script>document.addEventListener('DOMContentLoaded',()=>{if(typeof AOS!=='undefined')AOS.init({duration:650,easing:'ease-out-cubic',once:true,offset:60})})</script>
 </body>
 </html>

@@ -170,8 +170,8 @@
   <!-- ═══ PWA ═══════════════════════════════════════════════════════════════ -->
   <link rel="manifest" href="/manifest.json">
   <script src="/app.js" defer></script>
-  <meta name="theme-color" content="#2563eb">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Raine Pretorius">
 
@@ -185,671 +185,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn1.pretoriusse.net" crossorigin>
   <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
-  <link rel="preload" href="https://cdn1.pretoriusse.net/CDN/Images/raine.jpg" as="image">
-  <link rel="dns-prefetch" href="https://unpkg.com">
+  <link rel="preload" href="/assets/img/raine.webp" as="image">
 
   <!-- ═══ FONTS (display=swap prevents render block) ═══════════════════════ -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
 
   <!-- Font Awesome (defer — icons load after paint) -->
-  <script src="https://kit.fontawesome.com/bbc9821be1.js" crossorigin="anonymous" defer></script>
+  <script src="https://kit.fontawesome.com/bbc9821be1.js" crossorigin="anonymous" async></script>
 
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <style>
-    /* ── VARIABLES ─────────────────────────────────────────── */
-    :root {
-      --bg:      #06060f;
-      --bg2:     #0d0d1a;
-      --card:    rgba(255,255,255,0.04);
-      --cardH:   rgba(255,255,255,0.07);
-      --border:  rgba(255,255,255,0.08);
-      --borderB: rgba(255,255,255,0.16);
-      --accent:  #2563eb;
-      --accentL: #60a5fa;
-      --cyan:    #06b6d4;
-      --cyanL:   #22d3ee;
-      --green:   #10b981;
-      --amber:   #f59e0b;
-      --text:    #f1f5f9;
-      --muted:   #94a3b8;
-      --dim:     #64748b;
-      --r:       16px;
-      --shadow:  0 25px 50px rgba(0,0,0,0.5);
-    }
-
-    /* ── RESET ──────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html  { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
-    body  {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      max-width: 100%;
-      -webkit-font-smoothing: antialiased;
-    }
-    a   { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-
-    /* ── SCROLLBAR ──────────────────────────────────────────── */
-    ::-webkit-scrollbar       { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
-
-    /* ── NOISE OVERLAY ──────────────────────────────────────── */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.5;
-    }
-
-    /* ── UTILITIES ──────────────────────────────────────────── */
-    .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-
-    .grad-text {
-      background: linear-gradient(135deg, var(--accentL), var(--cyanL));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .glass {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      transition: background .3s, border-color .3s, transform .3s, box-shadow .3s;
-    }
-    .glass:hover {
-      background: var(--cardH);
-      border-color: var(--borderB);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(37,99,235,.12);
-    }
-
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 28px; border-radius: 50px;
-      font-weight: 600; font-size: .93rem; cursor: pointer;
-      border: none; transition: transform .25s, box-shadow .25s;
-      font-family: inherit;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #1d4ed8);
-      color: #fff;
-      box-shadow: 0 8px 30px rgba(37,99,235,.4);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(37,99,235,.6); }
-    .btn-outline {
-      background: transparent; color: var(--text);
-      border: 1px solid var(--borderB);
-    }
-    .btn-outline:hover {
-      border-color: var(--accent); color: var(--accentL);
-      background: rgba(37,99,235,.1); transform: translateY(-2px);
-    }
-
-    .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 16px; border-radius: 50px;
-      font-size: .78rem; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase;
-      background: rgba(37,99,235,.15);
-      border: 1px solid rgba(37,99,235,.35);
-      color: var(--accentL);
-      margin-bottom: 20px;
-    }
-
-    .sec-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-    .sec-sub {
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 580px;
-    }
-
-    /* ── NAVBAR ─────────────────────────────────────────────── */
-    #nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-      padding: 18px 0;
-      transition: padding .3s, background .3s, border .3s, backdrop-filter .3s;
-    }
-    #nav.scrolled {
-      padding: 12px 0;
-      background: rgba(6,6,15,.85);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner  { display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo   {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1.3rem;
-      background: linear-gradient(135deg, var(--accentL), var(--cyanL));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .nav-links  { display: flex; gap: 4px; list-style: none; }
-    .nav-links a {
-      padding: 8px 15px; border-radius: 50px;
-      font-size: .88rem; font-weight: 500; color: var(--muted);
-      transition: color .2s, background .2s;
-    }
-    .nav-links a:hover  { color: var(--text); background: rgba(255,255,255,.06); }
-    .nav-links a.active {
-      color: var(--text);
-      background: rgba(37,99,235,.15);
-      border: 1px solid rgba(37,99,235,.3);
-    }
-    .nav-cta {
-      padding: 9px 22px !important; color: #fff !important;
-      background: linear-gradient(135deg, var(--accent), #1d4ed8) !important;
-      font-weight: 600 !important;
-      box-shadow: 0 4px 20px rgba(37,99,235,.4);
-    }
-    .hamburger {
-      display: none; background: none; border: none;
-      color: var(--text); font-size: 1.4rem; cursor: pointer; padding: 4px;
-    }
-
-    /* Mobile menu */
-    .mob-menu {
-      display: none; position: fixed; inset: 0; z-index: 950;
-      background: rgba(6,6,15,.97);
-      flex-direction: column; align-items: center; justify-content: center; gap: 36px;
-    }
-    .mob-menu.open { display: flex; }
-    .mob-menu a {
-      font-size: 1.9rem; font-weight: 700; color: var(--text);
-      font-family: 'Space Grotesk', sans-serif;
-      transition: color .2s;
-    }
-    .mob-menu a:hover { color: var(--accentL); }
-    .mob-close {
-      position: absolute; top: 24px; right: 24px;
-      background: none; border: none; color: var(--text);
-      font-size: 1.8rem; cursor: pointer;
-    }
-
-    /* ── HERO ───────────────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      position: relative; overflow: hidden;
-      padding: 130px 24px 90px;
-    }
-
-    /* Gradient grid */
-    #hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size: 64px 64px;
-      pointer-events: none;
-    }
-
-    /* Orbs */
-    .orb {
-      position: absolute; border-radius: 50%;
-      filter: blur(90px); pointer-events: none;
-      animation: orbFloat 9s ease-in-out infinite;
-    }
-    .o1 { width:520px;height:520px; background:radial-gradient(circle,rgba(37,99,235,.55),transparent); top:-130px;left:-130px; animation-delay:0s; }
-    .o2 { width:420px;height:420px; background:radial-gradient(circle,rgba(6,182,212,.45),transparent);  bottom:-80px;right:-80px;  animation-delay:2.5s; }
-    .o3 { width:320px;height:320px; background:radial-gradient(circle,rgba(16,185,129,.3),transparent);  top:45%;left:62%;         animation-delay:5s; }
-    .o4 { width:280px;height:280px; background:radial-gradient(circle,rgba(245,158,11,.25),transparent); bottom:22%;left:8%;       animation-delay:7s; }
-
-    @keyframes orbFloat {
-      0%,100% { transform: translate(0,0) scale(1); }
-      33%      { transform: translate(28px,-28px) scale(1.06); }
-      66%      { transform: translate(-18px,18px) scale(.95); }
-    }
-
-    .hero-content { position: relative; z-index: 2; max-width: 860px; }
-
-    .hero-pill {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 8px 22px; border-radius: 50px;
-      background: rgba(37,99,235,.15);
-      border: 1px solid rgba(37,99,235,.4);
-      font-size: .83rem; font-weight: 600; color: #bfdbfe;
-      margin-bottom: 32px;
-      animation: fadeUp .8s ease both;
-    }
-    .hero-pill .dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 10px var(--green);
-      animation: pulse 2s infinite;
-    }
-
-    .hero-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(3.6rem, 8.5vw, 7.2rem);
-      font-weight: 900;
-      line-height: 1.04;
-      margin-bottom: 22px;
-      animation: fadeUp .8s ease .15s both;
-    }
-    .hero-tag {
-      color: var(--muted);
-      font-size: clamp(1rem, 2.5vw, 1.35rem);
-      margin-bottom: 14px;
-      animation: fadeUp .8s ease .25s both;
-    }
-    .hero-typed-wrap {
-      font-size: clamp(1.3rem, 3vw, 1.9rem);
-      font-weight: 700;
-      min-height: 2.6rem;
-      margin-bottom: 36px;
-      animation: fadeUp .8s ease .35s both;
-    }
-    .typed-cursor { color: var(--accentL); }
-    .hero-desc {
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.75;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      animation: fadeUp .8s ease .45s both;
-    }
-    .hero-actions {
-      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
-      margin-bottom: 52px;
-      animation: fadeUp .8s ease .55s both;
-    }
-    .hero-socials {
-      display: flex; gap: 12px; justify-content: center;
-      animation: fadeUp .8s ease .65s both;
-    }
-    .s-pill {
-      display: flex; align-items: center; gap: 8px;
-      padding: 9px 20px; border-radius: 50px;
-      background: var(--card); border: 1px solid var(--border);
-      font-size: .88rem; color: var(--muted);
-      transition: all .3s;
-    }
-    .s-pill:hover { border-color: var(--borderB); color: var(--text); transform: translateY(-2px); }
-
-    .scroll-cue {
-      position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      color: var(--dim); font-size: .7rem; letter-spacing: 2px; text-transform: uppercase;
-      animation: fadeIn 1s ease 1.8s both;
-    }
-    .scroll-line {
-      width: 1px; height: 48px;
-      background: linear-gradient(to bottom, transparent, var(--accent));
-      animation: scPulse 2s ease infinite;
-    }
-
-    @keyframes fadeUp  { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes fadeIn  { from{opacity:0} to{opacity:1} }
-    @keyframes pulse   { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(1.3)} }
-    @keyframes scPulse { 0%,100%{opacity:.4} 50%{opacity:1} }
-    @keyframes glow    { 0%,100%{box-shadow:0 0 12px rgba(37,99,235,.7)} 50%{box-shadow:0 0 28px rgba(37,99,235,1)} }
-
-    /* ── STATS BAR ──────────────────────────────────────────── */
-    #stats {
-      padding: 30px 0;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
-      gap: 24px; text-align: center;
-    }
-    .stat-num  { font-family:'Space Grotesk',sans-serif; font-size:2.4rem; font-weight:800; }
-    .stat-lbl  { font-size:.82rem; color:var(--muted); margin-top:4px; letter-spacing:.4px; }
-
-    /* ── ABOUT ──────────────────────────────────────────────── */
-    #about { padding: 120px 0; }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .img-wrap    { position: relative; }
-    .img-glow    {
-      position: absolute; inset: -2px; border-radius: 26px;
-      background: linear-gradient(135deg, var(--accent), var(--cyan));
-      z-index: -1;
-    }
-    .img-frame   {
-      position: relative; border-radius: 24px; overflow: hidden;
-    }
-    .img-frame img { width:100%; }
-
-    .float-card {
-      position: absolute; border-radius: 14px;
-      background: rgba(10,10,24,.92);
-      border: 1px solid var(--borderB);
-      backdrop-filter: blur(20px);
-      padding: 14px 22px;
-      box-shadow: var(--shadow);
-      z-index: 10;
-    }
-    .fc-label { font-size:.72rem; color:var(--dim); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
-    .fc-value { font-family:'Space Grotesk',sans-serif; font-size:1.35rem; font-weight:700; }
-
-    .about-badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:28px; }
-    .a-badge {
-      padding:5px 14px; border-radius:50px;
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--border);
-      font-size:.82rem; color:var(--muted);
-    }
-
-    /* ── CURRENT ROLES ──────────────────────────────────────── */
-    #roles { padding: 120px 0; background: var(--bg2); }
-    .roles-hdr { text-align:center; margin-bottom:64px; }
-    .roles-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
-
-    .role-card {
-      position: relative; padding: 40px;
-      border-radius: 24px; overflow: hidden;
-      background: var(--card);
-      border: 1px solid var(--border);
-      transition: transform .4s, box-shadow .4s;
-    }
-    .role-card:hover { transform: translateY(-7px); }
-
-    .rc-purple::before {
-      content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(91,33,182,.05));
-      pointer-events:none;
-    }
-    .rc-purple:hover { box-shadow:0 32px 80px rgba(37,99,235,.28), 0 0 0 1px rgba(37,99,235,.4); }
-
-    .rc-cyan::before {
-      content:''; position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(8,145,178,.04));
-      pointer-events:none;
-    }
-    .rc-cyan:hover { box-shadow:0 32px 80px rgba(6,182,212,.22), 0 0 0 1px rgba(6,182,212,.4); }
-
-    .role-icon {
-      width:60px; height:60px; border-radius:14px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:1.5rem; margin-bottom:22px;
-    }
-    .ri-purple { background:linear-gradient(135deg,#2563eb,#1d4ed8); box-shadow:0 8px 28px rgba(37,99,235,.5); }
-    .ri-cyan   { background:linear-gradient(135deg,#06b6d4,#0891b2); box-shadow:0 8px 28px rgba(6,182,212,.5); }
-
-    .role-status {
-      display:inline-flex; align-items:center; gap:6px;
-      padding:4px 12px; border-radius:50px;
-      font-size:.72rem; font-weight:700; margin-bottom:14px;
-    }
-    .rs-dot { width:6px;height:6px;border-radius:50%; animation:pulse 2s infinite; }
-    .rs-purple { background:rgba(37,99,235,.15); color:#bfdbfe; border:1px solid rgba(37,99,235,.3); }
-    .rs-purple .rs-dot { background:var(--accentL); box-shadow:0 0 6px var(--accentL); }
-    .rs-cyan   { background:rgba(6,182,212,.15);   color:#67e8f9; border:1px solid rgba(6,182,212,.3);   }
-    .rs-cyan   .rs-dot { background:var(--cyanL);  box-shadow:0 0 6px var(--cyanL); }
-
-    .role-title   { font-family:'Space Grotesk',sans-serif; font-size:1.55rem; font-weight:700; margin-bottom:6px; }
-    .role-company { font-size:1.05rem; color:var(--muted); font-weight:500; margin-bottom:6px; }
-    .role-date    { font-size:.82rem; color:var(--dim); margin-bottom:18px; }
-    .role-desc    { color:var(--muted); line-height:1.72; font-size:.93rem; margin-bottom:26px; }
-    .role-link    { display:inline-flex; align-items:center; gap:8px; font-size:.88rem; font-weight:600; transition:gap .2s; }
-    .role-link:hover { gap:14px; }
-    .rl-purple { color:var(--accentL); }
-    .rl-cyan   { color:var(--cyanL); }
-
-    /* ── SKILLS ─────────────────────────────────────────────── */
-    #skills { padding: 120px 0; }
-    .skills-hdr { text-align:center; margin-bottom:64px; }
-    .skills-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(275px,1fr)); gap:18px; }
-
-    .sk-card { padding:26px; display:flex; align-items:flex-start; gap:18px; }
-    .sk-icon  {
-      width:46px; height:46px; border-radius:12px; flex-shrink:0;
-      display:flex; align-items:center; justify-content:center; font-size:1.2rem;
-    }
-    .sk-name  { font-weight:700; font-size:.98rem; margin-bottom:5px; }
-    .sk-desc  { font-size:.82rem; color:var(--muted); line-height:1.5; margin-bottom:10px; }
-    .sk-track { height:3px; background:rgba(255,255,255,.08); border-radius:2px; overflow:hidden; }
-    .sk-fill  { height:100%; border-radius:2px; width:0; transition:width 1.6s cubic-bezier(.4,0,.2,1); }
-    .sk-more  {
-      display:inline-flex; align-items:center; gap:6px;
-      font-size:.78rem; font-weight:600; color:var(--accentL);
-      margin-top:10px; transition:gap .2s;
-    }
-    .sk-more:hover { gap:10px; }
-
-    /* Colour themes */
-    .c-purple .sk-icon { background:rgba(37,99,235,.2); color:var(--accentL); }
-    .c-purple .sk-fill { background:linear-gradient(90deg,#2563eb,var(--accentL)); }
-    .c-blue   .sk-icon { background:rgba(59,130,246,.2);  color:#60a5fa; }
-    .c-blue   .sk-fill { background:linear-gradient(90deg,#3b82f6,#60a5fa); }
-    .c-cyan   .sk-icon { background:rgba(6,182,212,.2);   color:var(--cyanL); }
-    .c-cyan   .sk-fill { background:linear-gradient(90deg,#06b6d4,var(--cyanL)); }
-    .c-green  .sk-icon { background:rgba(16,185,129,.2);  color:#34d399; }
-    .c-green  .sk-fill { background:linear-gradient(90deg,#10b981,#34d399); }
-    .c-amber  .sk-icon { background:rgba(245,158,11,.2);  color:#fbbf24; }
-    .c-amber  .sk-fill { background:linear-gradient(90deg,#f59e0b,#fbbf24); }
-    .c-red    .sk-icon { background:rgba(239,68,68,.2);   color:#f87171; }
-    .c-red    .sk-fill { background:linear-gradient(90deg,#ef4444,#f87171); }
-    .c-teal   .sk-icon { background:rgba(20,184,166,.2);  color:#2dd4bf; }
-    .c-teal   .sk-fill { background:linear-gradient(90deg,#14b8a6,#2dd4bf); }
-    .c-pink   .sk-icon { background:rgba(236,72,153,.2);  color:#f472b6; }
-    .c-pink   .sk-fill { background:linear-gradient(90deg,#ec4899,#f472b6); }
-    .c-orange .sk-icon { background:rgba(249,115,22,.2);  color:#fb923c; }
-    .c-orange .sk-fill { background:linear-gradient(90deg,#f97316,#fb923c); }
-
-    /* ── TIMELINE ───────────────────────────────────────────── */
-    #timeline { padding:120px 0; background:var(--bg2); }
-    .tl-hdr { text-align:center; margin-bottom:64px; }
-    .tl-wrap {
-      position:relative; max-width:780px; margin:0 auto;
-    }
-    .tl-wrap::before {
-      content:''; position:absolute;
-      left:26px; top:0; bottom:0; width:2px;
-      background:linear-gradient(to bottom, var(--accent), var(--cyan), transparent);
-    }
-    .tl-item {
-      display:flex; gap:28px;
-      margin-bottom:36px; padding-left:70px; position:relative;
-    }
-    .tl-dot {
-      position:absolute; left:16px; top:20px;
-      width:22px; height:22px; border-radius:50%;
-      border:3px solid var(--bg2); z-index:1;
-    }
-    .td-current { background:var(--accent); animation:glow 2.2s infinite; }
-    .td-career  { background:var(--cyan); }
-    .td-edu     { background:var(--green); }
-    .td-cert    { background:var(--amber); }
-
-    .tl-card { padding:22px 26px; flex:1; }
-    .tl-tag  {
-      display:inline-flex; padding:3px 11px; border-radius:50px;
-      font-size:.7rem; font-weight:700; letter-spacing:.5px;
-      text-transform:uppercase; margin-bottom:10px;
-    }
-    .tt-current { background:rgba(37,99,235,.2); color:var(--accentL); border:1px solid rgba(37,99,235,.3); }
-    .tt-career  { background:rgba(6,182,212,.2);   color:var(--cyanL);  border:1px solid rgba(6,182,212,.3);  }
-    .tt-edu     { background:rgba(16,185,129,.2);  color:#34d399;       border:1px solid rgba(16,185,129,.3); }
-    .tt-cert    { background:rgba(245,158,11,.2);  color:#fbbf24;       border:1px solid rgba(245,158,11,.3); }
-
-    .tl-title { font-family:'Space Grotesk',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:4px; }
-    .tl-org   { font-size:.88rem; color:var(--muted); font-weight:500; margin-bottom:4px; }
-    .tl-date  { font-size:.78rem; color:var(--dim); margin-bottom:10px; }
-    .tl-desc  { font-size:.88rem; color:var(--muted); line-height:1.65; }
-    .tl-more  {
-      display:inline-flex; align-items:center; gap:6px;
-      font-size:.78rem; font-weight:600; color:var(--accentL);
-      margin-top:12px; transition:gap .2s;
-    }
-    .tl-more:hover { gap:10px; }
-
-    /* ── HOBBIES ────────────────────────────────────────────── */
-    #hobbies { padding:120px 0; }
-    .hob-hdr  { text-align:center; margin-bottom:64px; }
-    .hob-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-    .hob-card { padding:40px 30px; text-align:center; }
-    .hob-icon { font-size:3rem; margin-bottom:18px; display:block; }
-    .hob-name { font-family:'Space Grotesk',sans-serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; }
-    .hob-desc { color:var(--muted); font-size:.88rem; line-height:1.65; }
-
-    /* ── CONTACT ────────────────────────────────────────────── */
-    #contact { padding:120px 0; background:var(--bg2); }
-    .ct-hdr  { text-align:center; margin-bottom:64px; }
-    .ct-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:40px; align-items:start; }
-
-    .ct-info { padding:36px; }
-    .ct-info-title { font-family:'Space Grotesk',sans-serif; font-size:1.45rem; font-weight:700; margin-bottom:8px; }
-    .ct-info-sub   { color:var(--muted); font-size:.92rem; line-height:1.65; margin-bottom:36px; }
-
-    .ct-row { display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--border); }
-    .ct-row:last-of-type { border-bottom:none; margin-bottom:28px; }
-    .ct-ico {
-      width:42px; height:42px; border-radius:11px; flex-shrink:0;
-      display:flex; align-items:center; justify-content:center;
-      background:rgba(37,99,235,.15); color:var(--accentL); font-size:.95rem;
-    }
-    .ct-lbl { font-size:.75rem; color:var(--dim); text-transform:uppercase; letter-spacing:.5px; margin-bottom:2px; }
-    .ct-val { font-size:.92rem; font-weight:500; }
-
-    .soc-row { display:flex; gap:10px; }
-    .soc-ico {
-      width:42px; height:42px; border-radius:11px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:1.05rem;
-      background:var(--card); border:1px solid var(--border);
-      color:var(--muted); transition:all .3s;
-    }
-    .soc-ico:hover {
-      background:rgba(37,99,235,.2); border-color:rgba(37,99,235,.4);
-      color:var(--accentL); transform:translateY(-3px);
-    }
-
-    .ct-form { padding:36px; }
-    .f-row   { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
-    .f-grp   { margin-bottom:14px; }
-    .f-grp label { display:block; font-size:.82rem; font-weight:600; color:var(--muted); margin-bottom:7px; }
-    .f-inp {
-      width:100%; padding:13px 16px;
-      background:rgba(255,255,255,.04);
-      border:1px solid var(--border); border-radius:11px;
-      color:var(--text); font-size:.92rem; font-family:inherit;
-      outline:none; transition:border .3s, background .3s, box-shadow .3s;
-    }
-    .f-inp:focus {
-      border-color:rgba(37,99,235,.6);
-      background:rgba(37,99,235,.06);
-      box-shadow:0 0 0 3px rgba(37,99,235,.14);
-    }
-    .f-inp::placeholder { color:var(--dim); }
-    textarea.f-inp { min-height:125px; resize:vertical; }
-
-    .f-submit {
-      width:100%; padding:15px;
-      background:linear-gradient(135deg, var(--accent), #1d4ed8);
-      color:#fff; border:none; border-radius:11px;
-      font-size:.98rem; font-weight:700; cursor:pointer;
-      display:flex; align-items:center; justify-content:center; gap:10px;
-      font-family:inherit;
-      box-shadow:0 8px 30px rgba(37,99,235,.4);
-      transition:transform .3s, box-shadow .3s;
-    }
-    .f-submit:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(37,99,235,.6); }
-
-    /* ── FOOTER ─────────────────────────────────────────────── */
-    footer {
-      padding:36px 0;
-      border-top:1px solid var(--border);
-    }
-    .ft-inner {
-      display:flex; align-items:center; justify-content:space-between;
-      flex-wrap:wrap; gap:20px;
-    }
-    .ft-logo { font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.15rem; }
-    .ft-copy { color:var(--dim); font-size:.88rem; }
-    .ft-links { display:flex; gap:22px; }
-    .ft-links a { color:var(--dim); font-size:.88rem; transition:color .2s; }
-    .ft-links a:hover { color:var(--accentL); }
-
-    /* ── BACK TO TOP ────────────────────────────────────────── */
-    #btt {
-      position:fixed; bottom:28px; right:28px; z-index:200;
-      width:46px; height:46px; border-radius:50%;
-      background:linear-gradient(135deg, var(--accent), #1d4ed8);
-      color:#fff; border:none; cursor:pointer; font-size:1rem;
-      display:none; align-items:center; justify-content:center;
-      box-shadow:0 8px 28px rgba(37,99,235,.5);
-      transition:transform .3s;
-    }
-    #btt:hover    { transform:translateY(-3px); }
-    #btt.show     { display:flex; }
-
-    /* ── RESPONSIVE ─────────────────────────────────────────── */
-    @media (max-width:1024px) {
-      .about-grid { grid-template-columns:1fr; gap:52px; }
-      .img-wrap   { max-width:380px; margin:0 auto; }
-      .roles-grid { grid-template-columns:1fr; }
-      .ct-grid    { grid-template-columns:1fr; }
-    }
-    @media (max-width:768px) {
-      .nav-links    { display:none; }
-      .hamburger    { display:flex; }
-      .hob-grid     { grid-template-columns:1fr; }
-      .f-row        { grid-template-columns:1fr; }
-      .ft-inner     { flex-direction:column; text-align:center; }
-      .hero-actions { flex-direction:column; align-items:center; }
-      .stats-grid   { grid-template-columns:1fr 1fr; }
-      /* Shrink orbs so blur() doesn't bleed past overflow:hidden */
-      .o1 { width:260px; height:260px; top:-60px; left:-60px; }
-      .o2 { width:220px; height:220px; bottom:-40px; right:-40px; }
-      .o3, .o4 { display:none; }
-      /* Skills cards: force single column so minmax(275px) can't overflow */
-      .skills-grid { grid-template-columns:1fr; }
-    }
-    @media (max-width:600px) {
-      /* Hero name: reduce minimum so "Raine Pretorius" fits any screen */
-      .hero-name       { font-size: clamp(1.9rem, 9vw, 7.2rem); letter-spacing: -0.5px; }
-      .hero-typed-wrap { font-size: clamp(1rem, 5vw, 1.9rem); }
-      .hero-tag        { font-size: clamp(.85rem, 3.5vw, 1.35rem); }
-      .hero-desc       { font-size: .92rem; }
-      /* Tighter hero padding on small screens */
-      #hero { padding: 100px 20px 60px; }
-      /* Prevent social pills from forcing width */
-      .hero-socials { gap: 8px; }
-      .s-pill       { padding: 8px 14px; font-size: .8rem; }
-      /* Stat numbers */
-      .stat-num { font-size: 2rem; }
-      /* About section */
-      .about-badges { gap: 8px; }
-    }
-    @media (max-width:500px) {
-      .role-card       { padding:26px 22px; }
-      .tl-item         { padding-left:54px; }
-      .tl-wrap::before { left:14px; }
-      .tl-dot          { left:4px; }
-      /* Stats: stack to 2 columns */
-      .stats-grid      { grid-template-columns:1fr 1fr; gap:16px; }
-      /* Section titles */
-      .sec-title       { font-size: 1.8rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/rp.css">
+  <script>if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){document.documentElement.classList.add('js-anim');setTimeout(function(){if(!window.__rp)document.documentElement.classList.remove('js-anim')},2500)}</script>
 </head>
 <body id="page-top">
 
@@ -857,17 +202,17 @@
   <nav id="nav" aria-label="Main navigation">
     <div class="wrap">
       <div class="nav-inner">
-        <a href="#page-top" class="nav-logo" aria-label="Home">RP</a>
+        <a href="#page-top" class="nav-logo" aria-label="Home">Raine Pretorius</a>
         <ul class="nav-links" role="list">
-          <li><a href="#about"                    data-section="about">About</a></li>
-          <li><a href="#roles"                    data-section="roles">Work</a></li>
-          <li><a href="/my-skills/"               data-section="skills">Skills</a></li>
-          <li><a href="/education-experience-1/"  data-section="timeline">Timeline</a></li>
-          <li><a href="/hobbies/"                 data-section="hobbies">Hobbies</a></li>
-          <li><a href="/contact/"                 data-section="contact" class="nav-cta">Contact Me</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#roles">Work</a></li>
+          <li><a href="/my-skills/">Skills</a></li>
+          <li><a href="/education-experience-1/">Experience</a></li>
+          <li><a href="/hobbies/">Hobbies</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
         </ul>
-        <button class="hamburger" onclick="openMenu()" aria-label="Open navigation menu" aria-expanded="false">
-          <i class="fas fa-bars"></i>
+        <button class="hamburger" onclick="openMenu()" aria-label="Open navigation menu">
+          <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </div>
     </div>
@@ -876,491 +221,298 @@
   <!-- Mobile menu -->
   <div class="mob-menu" id="mobMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <button class="mob-close" onclick="closeMenu()" aria-label="Close navigation menu">
-      <i class="fas fa-times"></i>
+      <i class="fas fa-times" aria-hidden="true"></i>
     </button>
-    <a href="#about"                   onclick="closeMenu()">About Me</a>
-    <a href="#roles"                   onclick="closeMenu()">Where I Work</a>
-    <a href="/my-skills/"              onclick="closeMenu()">My Skills</a>
-    <a href="/education-experience-1/" onclick="closeMenu()">Timeline</a>
+    <a href="#about"                   onclick="closeMenu()">About</a>
+    <a href="#roles"                    onclick="closeMenu()">Work</a>
+    <a href="/my-skills/"              onclick="closeMenu()">Skills</a>
+    <a href="/education-experience-1/" onclick="closeMenu()">Experience</a>
     <a href="/hobbies/"                onclick="closeMenu()">Hobbies</a>
-    <a href="/contact/"                onclick="closeMenu()">Contact Me</a>
+    <a href="#contact"                 onclick="closeMenu()">Contact</a>
   </div>
 
+  <main class="home">
+
   <!-- ════════════════════════════════════════ HERO -->
-  <section id="hero" aria-label="Introduction">
-    <div class="orb o1" aria-hidden="true"></div>
-    <div class="orb o2" aria-hidden="true"></div>
-    <div class="orb o3" aria-hidden="true"></div>
-    <div class="orb o4" aria-hidden="true"></div>
-
-    <div class="hero-content">
-      <div class="hero-pill">
-        <span class="dot" aria-hidden="true"></span>
-        Based in Johannesburg, South Africa
+  <section class="hero" aria-label="Introduction">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="hero-loc">Johannesburg, South Africa</p>
+        <h1 class="hero-name">Raine Pretorius</h1>
+        <p class="hero-role">Solutions Architect at Untamed Technologies.<br>Managing Director and Founder of LocknAlert.</p>
+        <p class="hero-desc">
+          I design software systems for clients across several industries, and I run a smart security company that I started in 2025. My background is in C#, ASP.NET, Python and databases, with a few years of internships at Johannesburg software houses behind me.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="/education-experience-1/" class="btn btn-outline">View experience</a>
+        </div>
+        <div class="hero-links" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/raine-pretorius-96a3981b6/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/rainepretorius/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100012853022485" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="mailto:raine.pretorius1@gmail.com">raine.pretorius1@gmail.com</a>
+        </div>
       </div>
-
-      <h1 class="hero-name">
-        <span class="grad-text">Raine</span> Pretorius
-      </h1>
-
-      <p class="hero-tag">I build things. I lead teams. I ship products.</p>
-
-      <div class="hero-typed-wrap" aria-label="Professional titles">
-        <span id="typed"></span>
+      <div class="hero-photo">
+        <img src="/assets/img/raine.webp" alt="Raine Pretorius" width="1080" height="1080" fetchpriority="high">
       </div>
-
-      <p class="hero-desc">
-        Solutions Architect, Founder, and software engineer passionate about building technology that makes a real impact. Architecting solutions at <strong style="color:var(--text)">Untamed Technologies</strong> and building the future of smart security at <strong style="color:var(--text)">LocknAlert</strong>.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          <i class="fas fa-paper-plane" aria-hidden="true"></i> Get In Touch
-        </a>
-        <a href="#roles" class="btn btn-outline">
-          <i class="fas fa-briefcase" aria-hidden="true"></i> See My Work
-        </a>
-      </div>
-
-      <div class="hero-socials" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/raine-pretorius-96a3981b6/" target="_blank" rel="noopener noreferrer" class="s-pill" aria-label="LinkedIn profile">
-          <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
-        </a>
-        <a href="https://www.instagram.com/rainepretorius/" target="_blank" rel="noopener noreferrer" class="s-pill" aria-label="Instagram profile">
-          <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100012853022485" target="_blank" rel="noopener noreferrer" class="s-pill" aria-label="Facebook profile">
-          <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
-        </a>
-        <a href="mailto:raine.pretorius1@gmail.com" class="s-pill" aria-label="Send email">
-          <i class="fas fa-envelope" aria-hidden="true"></i> Email
-        </a>
-      </div>
-    </div>
-
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════ STATS BAR -->
-  <div id="stats" aria-label="Quick stats">
-    <div class="wrap">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-num grad-text">5+</div>
-          <div class="stat-lbl">Years Building Software</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num grad-text">2</div>
-          <div class="stat-lbl">Companies Leading</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num grad-text">9+</div>
-          <div class="stat-lbl">Tech Certifications</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num grad-text">∞</div>
-          <div class="stat-lbl">Problems Solved</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ════════════════════════════════════════ ABOUT -->
-  <section id="about" aria-label="About me">
-    <div class="wrap">
-      <div class="about-grid">
-
-        <!-- Image -->
-        <div class="img-wrap" data-aos="fade-right">
-          <div class="img-glow" aria-hidden="true"></div>
-          <div class="img-frame">
-            <img
-              src="https://cdn1.pretoriusse.net/CDN/Images/raine.jpg"
-              alt="Raine Pretorius — Solutions Architect and Founder"
-              width="480" height="540"
-              loading="lazy"
-            >
-          </div>
-          <!-- Floating badges -->
-          <div class="float-card" style="top:-14px;left:-14px;border-color:rgba(37,99,235,.4);">
-            <div class="fc-label">Status</div>
-            <div class="fc-value" style="font-size:1rem;color:var(--green);">&#9679; Open to opportunities</div>
-          </div>
-          <div class="float-card" style="bottom:-16px;right:-16px;">
-            <div class="fc-label">Active Roles</div>
-            <div class="fc-value grad-text">2 Current</div>
-            <div style="font-size:.75rem;color:var(--dim);margin-top:3px;">Untamed Tech &middot; LocknAlert</div>
-          </div>
-        </div>
-
-        <!-- Text -->
-        <div data-aos="fade-left">
-          <div class="badge"><i class="fas fa-user" aria-hidden="true"></i> About Me</div>
-          <h2 class="sec-title">Builder. Architect.<br><span class="grad-text">Entrepreneur.</span></h2>
-          <p class="sec-sub" style="margin-bottom:18px;">
-            I'm a passionate software engineer and tech entrepreneur from Johannesburg, South Africa. My journey started with a love for programming that quickly evolved into building real products and leading engineering teams.
-          </p>
-          <p style="color:var(--muted);font-size:.93rem;line-height:1.8;margin-bottom:16px;">
-            Today, I work as a <strong style="color:var(--text)">Solutions Architect at Untamed Technologies</strong>, designing scalable systems and technical strategies for clients across industries. Simultaneously, I'm the <strong style="color:var(--text)">Managing Director and Founder of LocknAlert</strong> — a smart security platform changing how people protect what matters most.
-          </p>
-          <p style="color:var(--muted);font-size:.93rem;line-height:1.8;">
-            Beyond code, I'm a Digico-certified sound engineer, an avid mountain biker, and someone who genuinely believes technology should solve real problems for real people.
-          </p>
-          <div class="about-badges" aria-label="Key attributes">
-            <span class="a-badge">Solutions Architecture</span>
-            <span class="a-badge">C# &amp; ASP.NET</span>
-            <span class="a-badge">Python</span>
-            <span class="a-badge">Joburg, ZA</span>
-            <span class="a-badge">Startup Founder</span>
-            <span class="a-badge">Sound Engineering</span>
-          </div>
+  <section id="about" class="home-sec" aria-label="About me">
+    <div class="wrap about-cols">
+      <div>
+        <p class="badge">About</p>
+        <h2 class="sec-title">Background</h2>
+      </div>
+      <div>
+        <p>
+          I'm a software engineer from Johannesburg, South Africa. I started out programming for the enjoyment of it, and that turned into building products for clients and, more recently, running my own company.
+        </p>
+        <p>
+          I work as a <strong>Solutions Architect at Untamed Technologies</strong>, where I design systems and technical plans for clients. I'm also the <strong>Managing Director and Founder of LocknAlert</strong>, a smart security business for homes and businesses.
+        </p>
+        <p>
+          Outside of software I'm a Digico SD5 certified sound engineer and I ride mountain bikes.
+        </p>
+        <div class="about-badges" aria-label="Focus areas">
+          <span class="a-badge">Solutions Architecture</span>
+          <span class="a-badge">C# &amp; ASP.NET</span>
+          <span class="a-badge">Python</span>
+          <span class="a-badge">Databases &amp; SQL</span>
+          <span class="a-badge">Sound Engineering</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════ CURRENT ROLES -->
-  <section id="roles" aria-label="Current positions">
+  <section id="roles" class="home-sec alt" aria-label="Current positions">
     <div class="wrap">
-      <div class="roles-hdr" data-aos="fade-up">
-        <div class="badge"><i class="fas fa-briefcase" aria-hidden="true"></i> Current Positions</div>
-        <h2 class="sec-title">Where I Work Now</h2>
-        <p class="sec-sub" style="margin:0 auto;">
-          Building impactful technology at two exciting companies simultaneously — one as an architect, one as a founder.
-        </p>
+      <div class="sec-hdr">
+        <p class="badge">Work</p>
+        <h2 class="sec-title">Current positions</h2>
       </div>
 
       <div class="roles-grid">
-
-        <!-- Untamed Technologies -->
-        <article class="role-card rc-purple" data-aos="fade-up" data-aos-delay="80">
-          <div class="role-icon ri-purple" aria-hidden="true">
-            <i class="fas fa-network-wired"></i>
+        <article class="role-card glass">
+          <div class="role-media media">
+            <img src="/assets/img/untamed-smart-living.webp" alt="Living room with smart lighting and a wall-mounted TV, installed by Untamed Technologies" width="1366" height="1025" loading="lazy">
           </div>
-          <div class="role-status rs-purple">
-            <span class="rs-dot" aria-hidden="true"></span>
-            Current &middot; Full-time
+          <div class="role-body">
+            <div class="role-date">June 2025 &ndash; Present &middot; Full-time</div>
+            <h3 class="role-title">Solutions Architect</h3>
+            <div class="role-company"><img class="co-logo" src="/assets/img/untamed-logo.svg" alt="" width="20" height="20">Untamed Technologies</div>
+            <p class="role-desc">
+              Designing and implementing scalable, cloud-ready architectures for clients in several industries. I turn business requirements into technical plans, make the technology decisions, and make sure systems are built to last.
+            </p>
+            <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" class="role-link">untamedtech.co.za</a>
           </div>
-          <h3 class="role-title">Solutions Architect</h3>
-          <div class="role-company">
-            <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" aria-label="Visit Untamed Technologies website">
-              Untamed Technologies
-            </a>
-          </div>
-          <div class="role-date">
-            <i class="fas fa-calendar" aria-hidden="true" style="margin-right:6px;opacity:.5;"></i>June 2025 &ndash; Present
-          </div>
-          <p class="role-desc">
-            Designing and implementing scalable, cloud-ready architectures for clients across multiple industries. Translating complex business requirements into robust technical strategies, leading technology decisions, and ensuring systems are built to last.
-          </p>
-          <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" class="role-link rl-purple" aria-label="Visit Untamed Technologies">
-            Visit Untamed Technologies <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
         </article>
 
-        <!-- LocknAlert -->
-        <article class="role-card rc-cyan" data-aos="fade-up" data-aos-delay="180">
-          <div class="role-icon ri-cyan" aria-hidden="true">
-            <i class="fas fa-shield-alt"></i>
+        <article class="role-card glass">
+          <div class="role-media media on-white">
+            <img src="/assets/img/locknalert-hub.webp" alt="The LocknAlert home hub" width="1536" height="1024" loading="lazy">
           </div>
-          <div class="role-status rs-cyan">
-            <span class="rs-dot" aria-hidden="true"></span>
-            Current &middot; Founder
+          <div class="role-body">
+            <div class="role-date">August 2025 &ndash; Present &middot; Founder</div>
+            <h3 class="role-title">Managing Director &amp; Founder</h3>
+            <div class="role-company"><img class="co-logo" src="/assets/img/locknalert-logo.png" alt="" width="20" height="20">LocknAlert</div>
+            <p class="role-desc">
+              I founded and run LocknAlert, a smart security platform that gives homes and businesses real-time protection. I'm responsible for product direction, the technology stack, business strategy and growing the team.
+            </p>
+            <a href="https://locknalert.co.za" target="_blank" rel="noopener noreferrer" class="role-link">locknalert.co.za</a>
           </div>
-          <h3 class="role-title">Managing Director &amp; Founder</h3>
-          <div class="role-company">
-            <a href="https://locknalert.co.za" target="_blank" rel="noopener noreferrer" aria-label="Visit LocknAlert website">
-              LocknAlert
-            </a>
-          </div>
-          <div class="role-date">
-            <i class="fas fa-calendar" aria-hidden="true" style="margin-right:6px;opacity:.5;"></i>August 2025 &ndash; Present
-          </div>
-          <p class="role-desc">
-            Founded and leading LocknAlert — a smart security platform delivering real-time protection and peace of mind for homes and businesses. Overseeing product direction, technology stack, business strategy, and team growth from the ground up.
-          </p>
-          <a href="https://locknalert.co.za" target="_blank" rel="noopener noreferrer" class="role-link rl-cyan" aria-label="Visit LocknAlert">
-            Visit LocknAlert <i class="fas fa-arrow-right" aria-hidden="true"></i>
-          </a>
         </article>
-
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════ SKILLS -->
-  <section id="skills" aria-label="Technical skills">
+  <section id="skills" class="home-sec" aria-label="Technical skills">
     <div class="wrap">
-      <div class="skills-hdr" data-aos="fade-up">
-        <div class="badge"><i class="fas fa-code" aria-hidden="true"></i> Technical Skills</div>
-        <h2 class="sec-title">What I Build With</h2>
-        <p class="sec-sub" style="margin:0 auto;">
-          A diverse toolkit spanning full-stack development, cloud architecture, data, and beyond.
-        </p>
+      <div class="sec-hdr">
+        <p class="badge">Skills</p>
+        <h2 class="sec-title">Technical skills</h2>
       </div>
 
-      <div class="skills-grid" id="skillsGrid">
-        <div class="sk-card glass c-purple" data-aos="fade-up" data-aos-delay="40">
-          <div class="sk-icon"><i class="fas fa-sitemap" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Solutions Architecture</div>
-            <div class="sk-desc">Smart home system design, integration &amp; technical strategy.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="90"></div></div>
-            <a href="/my-skills/solutions-architecture/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-blue" data-aos="fade-up" data-aos-delay="80">
-          <div class="sk-icon"><i class="fas fa-globe" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Web Development</div>
-            <div class="sk-desc">Blazor, Angular, ASP.NET — reactive, modern web applications.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="88"></div></div>
-            <a href="/my-skills/web-development/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-purple" data-aos="fade-up" data-aos-delay="120">
-          <div class="sk-icon"><i class="fas fa-hashtag" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">C# &amp; ASP.NET</div>
-            <div class="sk-desc">Enterprise-grade backends and APIs in the .NET ecosystem.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="87"></div></div>
-            <a href="/my-skills/asp-dot-net/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-amber" data-aos="fade-up" data-aos-delay="160">
-          <div class="sk-icon"><i class="fab fa-python" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Python</div>
-            <div class="sk-desc">Scripting, automation, data processing and backend services.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="85"></div></div>
-            <a href="/my-skills/python/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-cyan" data-aos="fade-up" data-aos-delay="200">
-          <div class="sk-icon"><i class="fas fa-database" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Databases &amp; SQL</div>
-            <div class="sk-desc">Design, optimisation, and analytics across SQL and NoSQL systems.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="83"></div></div>
-            <a href="/my-skills/databases/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-red" data-aos="fade-up" data-aos-delay="240">
-          <div class="sk-icon"><i class="fab fa-java" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Java</div>
-            <div class="sk-desc">Robust, scalable standalone applications and enterprise software.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="76"></div></div>
-            <a href="/my-skills/java/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-green" data-aos="fade-up" data-aos-delay="280">
-          <div class="sk-icon"><i class="fas fa-paint-brush" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Web Design</div>
-            <div class="sk-desc">Pixel-perfect UIs with a focus on UX and aesthetics.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="82"></div></div>
-            <a href="/my-skills/web-design/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-amber" data-aos="fade-up" data-aos-delay="320">
-          <div class="sk-icon"><i class="fas fa-file-excel" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Excel &amp; VBA</div>
-            <div class="sk-desc">Advanced macros, automation and stunning data visualisations.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="78"></div></div>
-            <a href="/my-skills/excel-macros-and-vba/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
-        <div class="sk-card glass c-teal" data-aos="fade-up" data-aos-delay="360">
-          <div class="sk-icon"><i class="fas fa-sliders-h" aria-hidden="true"></i></div>
-          <div>
-            <div class="sk-name">Sound Engineering</div>
-            <div class="sk-desc">Digico SD5 certified. Live sound mixing and live production.</div>
-            <div class="sk-track"><div class="sk-fill" data-w="80"></div></div>
-            <a href="/my-skills/digico-certified-sound-engineer/" class="sk-more">Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-          </div>
-        </div>
+      <div class="skills-list">
+        <a href="/my-skills/solutions-architecture/" class="skill-item">
+          <h3>Solutions Architecture</h3>
+          <p>Smart home system design, integration and technical strategy.</p>
+        </a>
+        <a href="/my-skills/web-development/" class="skill-item">
+          <h3>Web Development</h3>
+          <p>Blazor, Angular and ASP.NET web applications.</p>
+        </a>
+        <a href="/my-skills/asp-dot-net/" class="skill-item">
+          <h3>C# &amp; ASP.NET</h3>
+          <p>Backends and APIs in the .NET ecosystem.</p>
+        </a>
+        <a href="/my-skills/python/" class="skill-item">
+          <h3>Python</h3>
+          <p>Scripting, automation, data processing and backend services.</p>
+        </a>
+        <a href="/my-skills/databases/" class="skill-item">
+          <h3>Databases &amp; SQL</h3>
+          <p>Design, optimisation and analytics across SQL and NoSQL systems.</p>
+        </a>
+        <a href="/my-skills/java/" class="skill-item">
+          <h3>Java</h3>
+          <p>Standalone applications and enterprise software.</p>
+        </a>
+        <a href="/my-skills/web-design/" class="skill-item">
+          <h3>Web Design</h3>
+          <p>Responsive interfaces with a focus on usability.</p>
+        </a>
+        <a href="/my-skills/excel-macros-and-vba/" class="skill-item">
+          <h3>Excel &amp; VBA</h3>
+          <p>Macros, automation and data visualisation.</p>
+        </a>
+        <a href="/my-skills/digico-certified-sound-engineer/" class="skill-item">
+          <h3>Sound Engineering</h3>
+          <p>Digico SD5 certified. Live sound mixing and production.</p>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ════════════════════════════════════════ TIMELINE -->
-  <section id="timeline" aria-label="Education and experience timeline">
+  <!-- ════════════════════════════════════════ EXPERIENCE -->
+  <section id="timeline" class="home-sec alt" aria-label="Education and experience">
     <div class="wrap">
-      <div class="tl-hdr" data-aos="fade-up">
-        <div class="badge"><i class="fas fa-history" aria-hidden="true"></i> Journey</div>
-        <h2 class="sec-title">Education &amp; Experience</h2>
-        <p class="sec-sub" style="margin:0 auto;">
-          From early certifications to leading companies — the milestones that shaped who I am.
-        </p>
+      <div class="sec-hdr">
+        <p class="badge">Experience</p>
+        <h2 class="sec-title">Education &amp; experience</h2>
       </div>
 
-      <div class="tl-wrap">
-
-        <!-- LocknAlert Founder -->
-        <div class="tl-item" id="tl-locknalert" data-aos="fade-up">
-          <div class="tl-dot td-current" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-current">Current</div>
-            <div class="tl-title">Managing Director &amp; Founder</div>
-            <div class="tl-org">
-              <a href="https://locknalert.co.za" target="_blank" rel="noopener noreferrer" style="color:var(--cyanL);">LocknAlert</a>
-            </div>
-            <div class="tl-date">August 2025 &ndash; Present</div>
-            <div class="tl-desc">Founded LocknAlert — a smart security company delivering real-time protection solutions. Leading all aspects of the business: product, technology, team, and growth strategy.</div>
-            <a href="https://locknalert.co.za" target="_blank" rel="noopener noreferrer" class="tl-more" style="color:var(--cyanL);">Visit LocknAlert <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <div class="xp-list">
+        <div class="xp-row" id="tl-locknalert">
+          <div class="xp-date">Aug 2025 &ndash; Present</div>
+          <div>
+            <div class="xp-title">Managing Director &amp; Founder</div>
+            <div class="xp-org"><a href="https://locknalert.co.za" target="_blank" rel="noopener noreferrer">LocknAlert</a></div>
+            <div class="xp-desc">Founded LocknAlert, a smart security company. Responsible for product, technology, team and growth strategy.</div>
           </div>
         </div>
 
-        <!-- Untamed Technologies -->
-        <div class="tl-item" id="tl-untamed" data-aos="fade-up">
-          <div class="tl-dot td-current" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-current">Current</div>
-            <div class="tl-title">Solutions Architect</div>
-            <div class="tl-org">
-              <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" style="color:var(--accentL);">Untamed Technologies</a>
-            </div>
-            <div class="tl-date">June 2025 &ndash; Present</div>
-            <div class="tl-desc">Architecting scalable cloud solutions and defining technical strategy for clients. Bridging business objectives with elegant, maintainable engineering across multiple industries.</div>
-            <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" class="tl-more">Visit Untamed Technologies <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <div class="xp-row" id="tl-untamed">
+          <div class="xp-date">Jun 2025 &ndash; Present</div>
+          <div>
+            <div class="xp-title">Solutions Architect</div>
+            <div class="xp-org"><a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer">Untamed Technologies</a></div>
+            <div class="xp-desc">Architecting scalable cloud solutions and defining technical strategy for clients across multiple industries.</div>
           </div>
         </div>
 
-        <!-- Sebrus -->
-        <div class="tl-item" id="tl-sebrus" data-aos="fade-up">
-          <div class="tl-dot td-career" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-career">Experience</div>
-            <div class="tl-title">Intern Software Developer</div>
-            <div class="tl-org">Sebrus Software, Johannesburg</div>
-            <div class="tl-date">November 2023 &ndash; January 2024</div>
-            <div class="tl-desc">Contributed to custom software solutions at a specialist software house, gaining hands-on enterprise development experience across the full SDLC.</div>
-            <a href="/education-experience-1/sebrus-intern/" class="tl-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <div class="xp-row" id="tl-sebrus">
+          <div class="xp-date">Nov 2023 &ndash; Jan 2024</div>
+          <div>
+            <div class="xp-title">Intern Software Developer</div>
+            <div class="xp-org">Sebrus Software, Johannesburg</div>
+            <div class="xp-desc">Worked on custom software solutions at a specialist software house, across the full development lifecycle.</div>
+            <a href="/education-experience-1/sebrus-intern/" class="xp-more">Read more</a>
           </div>
         </div>
 
-        <!-- Mosaiek -->
-        <div class="tl-item" id="tl-mosaiek" data-aos="fade-up">
-          <div class="tl-dot td-career" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-career">Experience</div>
-            <div class="tl-title">Technical Intern</div>
-            <div class="tl-org">Mosaiek, Johannesburg</div>
-            <div class="tl-date">August 2023 &ndash; December 2023</div>
-            <div class="tl-desc">Technical internship covering live production and operations. Applied sound engineering expertise in a professional weekly broadcast environment.</div>
-            <a href="/education-experience-1/mosaiek-intern/" class="tl-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <div class="xp-row" id="tl-mosaiek">
+          <div class="xp-date">Aug 2023 &ndash; Dec 2023</div>
+          <div>
+            <div class="xp-title">Technical Intern</div>
+            <div class="xp-org">Mosaiek, Johannesburg</div>
+            <div class="xp-desc">Technical internship covering live production and operations in a weekly broadcast environment.</div>
+            <a href="/education-experience-1/mosaiek-intern/" class="xp-more">Read more</a>
           </div>
         </div>
 
-        <!-- UP -->
-        <div class="tl-item" id="tl-up" data-aos="fade-up">
-          <div class="tl-dot td-edu" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-edu">Education</div>
-            <div class="tl-title">BSc Information &amp; Knowledge Systems</div>
-            <div class="tl-org">University of Pretoria</div>
-            <div class="tl-date">February 2023 &ndash; November 2023</div>
-            <div class="tl-desc">Studied Information and Knowledge Systems at UP — one of South Africa's leading universities for technology and computer science.</div>
-            <a href="/education-experience-1/up-student/" class="tl-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <div class="xp-row" id="tl-up">
+          <div class="xp-date">Feb 2023 &ndash; Nov 2023</div>
+          <div>
+            <div class="xp-title">BSc Information &amp; Knowledge Systems</div>
+            <div class="xp-org">University of Pretoria</div>
+            <a href="/education-experience-1/up-student/" class="xp-more">Read more</a>
           </div>
         </div>
 
-        <!-- Matric -->
-        <div class="tl-item" id="tl-matric" data-aos="fade-up">
-          <div class="tl-dot td-edu" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-edu">Education</div>
-            <div class="tl-title">IEB Matric &mdash; National Senior Certificate</div>
-            <div class="tl-org">Helpmekaar Kollege, Johannesburg</div>
-            <div class="tl-date">December 2022</div>
-            <div class="tl-desc">Completed matric via IEB (Independent Examinations Board) — one of South Africa's most rigorous academic exit qualifications.</div>
-            <a href="/education-experience-1/grade-12/" class="tl-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <div class="xp-row" id="tl-matric">
+          <div class="xp-date">Dec 2022</div>
+          <div>
+            <div class="xp-title">IEB Matric, National Senior Certificate</div>
+            <div class="xp-org">Helpmekaar Kollege, Johannesburg</div>
+            <a href="/education-experience-1/grade-12/" class="xp-more">Read more</a>
           </div>
         </div>
 
-        <!-- Rysis -->
-        <div class="tl-item" id="tl-rysis" data-aos="fade-up">
-          <div class="tl-dot td-career" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-career">Experience</div>
-            <div class="tl-title">Software Development Intern</div>
-            <div class="tl-org">Rysis Software, Johannesburg</div>
-            <div class="tl-date">December 2021 &ndash; January 2023</div>
-            <div class="tl-desc">Built custom software for clients during vacation periods. Gained real-world experience across the full software development lifecycle, working with enterprise clients.</div>
-            <a href="/education-experience-1/rysis/" class="tl-more">Read More <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <div class="xp-row" id="tl-rysis">
+          <div class="xp-date">Dec 2021 &ndash; Jan 2023</div>
+          <div>
+            <div class="xp-title">Software Development Intern</div>
+            <div class="xp-org">Rysis Software, Johannesburg</div>
+            <div class="xp-desc">Built custom software for enterprise clients during school holidays.</div>
+            <a href="/education-experience-1/rysis/" class="xp-more">Read more</a>
           </div>
         </div>
 
-        <!-- Certs bundle -->
-        <div class="tl-item" id="tl-certs" data-aos="fade-up">
-          <div class="tl-dot td-cert" aria-hidden="true"></div>
-          <div class="tl-card glass">
-            <div class="tl-tag tt-cert">Certifications</div>
-            <div class="tl-title">Udemy Bootcamp Series</div>
-            <div class="tl-date">May 2020 &ndash; September 2020</div>
-            <div class="tl-desc">Completed: Complete Python Bootcamp &middot; Complete SQL Bootcamp &middot; Complete Web Development Bootcamp &middot; Excel Macros &amp; VBA &middot; Excel Data Visualisation &middot; Complete Java Certification Course.</div>
-            <a href="/education-experience-1/" class="tl-more">View All Certifications <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        <div class="xp-row" id="tl-certs">
+          <div class="xp-date">May 2020 &ndash; Sep 2020</div>
+          <div>
+            <div class="xp-title">Udemy certifications</div>
+            <div class="xp-desc">Complete Python Bootcamp, Complete SQL Bootcamp, Complete Web Development Bootcamp, Excel Macros &amp; VBA, Excel Data Visualisation, Complete Java Certification Course.</div>
           </div>
         </div>
-
+      </div>
+      <div class="sec-foot">
+        <a href="/education-experience-1/" class="btn btn-outline">Full timeline</a>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════ HOBBIES -->
-  <section id="hobbies" aria-label="Hobbies and interests">
+  <section id="hobbies" class="home-sec" aria-label="Hobbies and interests">
     <div class="wrap">
-      <div class="hob-hdr" data-aos="fade-up">
-        <div class="badge"><i class="fas fa-heart" aria-hidden="true"></i> Beyond Code</div>
-        <h2 class="sec-title">What I Do For Fun</h2>
-        <p class="sec-sub" style="margin:0 auto;">
-          When I'm not building software or running a startup, you'll find me doing these.
-        </p>
+      <div class="sec-hdr">
+        <p class="badge">Outside work</p>
+        <h2 class="sec-title">Hobbies</h2>
       </div>
 
       <div class="hob-grid">
-        <div class="hob-card glass" data-aos="fade-up" data-aos-delay="80">
-          <span class="hob-icon" aria-hidden="true">🚵</span>
-          <h3 class="hob-name">Mountain Biking</h3>
-          <p class="hob-desc">Nothing clears the mind like hitting the trails. Mountain biking keeps me grounded and gives me the headspace to think through complex problems.</p>
-        </div>
-        <div class="hob-card glass" data-aos="fade-up" data-aos-delay="160">
-          <span class="hob-icon" aria-hidden="true">🎚️</span>
-          <h3 class="hob-name">Sound Engineering</h3>
-          <p class="hob-desc">As a Digico SD5 certified engineer, I mix live sound professionally. There's real art in making a room feel the music — much like making software feel effortless.</p>
-        </div>
-        <div class="hob-card glass" data-aos="fade-up" data-aos-delay="240">
-          <span class="hob-icon" aria-hidden="true">💻</span>
-          <h3 class="hob-name">Programming</h3>
-          <p class="hob-desc">Programming is both my work and my passion. Building this site is proof — why pay someone else to do what you love? The process of creating something from nothing never gets old.</p>
-        </div>
+        <a href="/hobbies/mountain-biking/" class="hob-card glass">
+          <div class="hob-media media"><img src="/assets/img/hobby-mtb.jpg" alt="A singletrack trail through woodland" width="960" height="1280" loading="lazy"></div>
+          <div class="hob-body">
+            <h3 class="hob-name">Mountain Biking</h3>
+            <p class="hob-desc">Riding trails is how I clear my head and think through problems away from a screen.</p>
+          </div>
+        </a>
+        <a href="/hobbies/sound-engineering/" class="hob-card glass">
+          <div class="hob-media media"><img src="/assets/img/hobby-sound.jpg" alt="A DiGiCo SD5 mixing console" width="960" height="540" loading="lazy"></div>
+          <div class="hob-body">
+            <h3 class="hob-name">Sound Engineering</h3>
+            <p class="hob-desc">I'm a Digico SD5 certified engineer and mix live sound for services, broadcasts and events.</p>
+          </div>
+        </a>
+        <a href="/hobbies/programming/" class="hob-card glass">
+          <div class="hob-media media"><img class="muted" src="/assets/img/hobby-code.jpg" alt="Source code on a monitor" width="960" height="640" loading="lazy"></div>
+          <div class="hob-body">
+            <h3 class="hob-name">Programming</h3>
+            <p class="hob-desc">Programming is my work and my hobby. I built this site myself.</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════ CONTACT -->
-  <section id="contact" aria-label="Contact section">
+  <section id="contact" class="home-sec alt" aria-label="Contact">
     <div class="wrap">
-      <div class="ct-hdr" data-aos="fade-up">
-        <div class="badge"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact</div>
-        <h2 class="sec-title">Let's Work Together</h2>
-        <p class="sec-sub" style="margin:0 auto;">
-          Have a project in mind, a problem to solve, or just want to connect? My inbox is always open.
-        </p>
+      <div class="sec-hdr">
+        <p class="badge">Contact</p>
+        <h2 class="sec-title">Get in touch</h2>
+        <p class="sec-sub">For projects, collaboration or anything else, send me a message or an email.</p>
       </div>
 
       <div class="ct-grid">
-
-        <!-- Info -->
-        <div class="ct-info glass" data-aos="fade-right">
-          <h3 class="ct-info-title">Get In Touch</h3>
-          <p class="ct-info-sub">Whether it's a new project, a collaboration, or just a hello — I'd love to hear from you.</p>
-
+        <div class="ct-info glass">
           <div class="ct-row">
             <div class="ct-ico"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
             <div>
@@ -1373,9 +525,7 @@
             <div class="ct-ico"><i class="fas fa-envelope" aria-hidden="true"></i></div>
             <div>
               <div class="ct-lbl">Email</div>
-              <div class="ct-val">
-                <a href="mailto:raine.pretorius1@gmail.com">raine.pretorius1@gmail.com</a>
-              </div>
+              <div class="ct-val"><a href="mailto:raine.pretorius1@gmail.com">raine.pretorius1@gmail.com</a></div>
             </div>
           </div>
 
@@ -1384,8 +534,8 @@
             <div>
               <div class="ct-lbl">Companies</div>
               <div class="ct-val">
-                <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" style="color:var(--accentL);display:block;">Untamed Technologies</a>
-                <a href="https://locknalert.co.za"  target="_blank" rel="noopener noreferrer" style="color:var(--cyanL);display:block;margin-top:2px;">LocknAlert</a>
+                <a href="https://untamedtech.co.za" target="_blank" rel="noopener noreferrer" style="display:block">Untamed Technologies</a>
+                <a href="https://locknalert.co.za"  target="_blank" rel="noopener noreferrer" style="display:block;margin-top:2px">LocknAlert</a>
               </div>
             </div>
           </div>
@@ -1400,17 +550,13 @@
             <a href="https://www.facebook.com/profile.php?id=100012853022485" target="_blank" rel="noopener noreferrer" class="soc-ico" aria-label="Facebook">
               <i class="fab fa-facebook-f" aria-hidden="true"></i>
             </a>
-            <a href="https://www.instagram.com/locknalert/" target="_blank" rel="noopener noreferrer" class="soc-ico" aria-label="LocknAlert Instagram" style="background:rgba(6,182,212,.1);border-color:rgba(6,182,212,.25);color:var(--cyanL)">
+            <a href="https://www.instagram.com/locknalert/" target="_blank" rel="noopener noreferrer" class="soc-ico" aria-label="LocknAlert Instagram" title="LocknAlert Instagram">
               <i class="fas fa-shield-alt" aria-hidden="true"></i>
-            </a>
-            <a href="mailto:raine.pretorius1@gmail.com" class="soc-ico" aria-label="Email">
-              <i class="fas fa-envelope" aria-hidden="true"></i>
             </a>
           </div>
         </div>
 
-        <!-- Form -->
-        <div class="ct-form glass" data-aos="fade-left">
+        <div class="ct-form glass">
           <iframe name="dummyframe" id="dummyframe" style="display:none;" title="Form submission target"></iframe>
           <form
             action="https://api.pretoriusse.net/api/contact/raine/"
@@ -1422,147 +568,47 @@
             <div class="f-row">
               <div>
                 <label for="contact_name">Name</label>
-                <input type="text" id="contact_name" name="contact_name" placeholder="Your name" class="f-inp" required autocomplete="name">
+                <input type="text" id="contact_name" name="contact_name" class="f-inp" required autocomplete="name">
               </div>
               <div>
-                <label for="contact_phone">Phone</label>
-                <input type="tel" id="contact_phone" name="contact_phone" placeholder="+27 ..." class="f-inp" autocomplete="tel">
+                <label for="contact_phone">Phone (optional)</label>
+                <input type="tel" id="contact_phone" name="contact_phone" class="f-inp" autocomplete="tel">
               </div>
             </div>
             <div class="f-grp">
-              <label for="contact_email">Email Address</label>
-              <input type="email" id="contact_email" name="contact_email" placeholder="your@email.com" class="f-inp" required autocomplete="email">
+              <label for="contact_email">Email</label>
+              <input type="email" id="contact_email" name="contact_email" class="f-inp" required autocomplete="email">
             </div>
             <div class="f-grp">
               <label for="contact_message">Message</label>
-              <textarea id="contact_message" name="contact_message" placeholder="Tell me about your project or idea..." class="f-inp" required></textarea>
+              <textarea id="contact_message" name="contact_message" class="f-inp" required></textarea>
             </div>
-            <button type="submit" class="f-submit">
-              <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
-            </button>
+            <button type="submit" class="f-submit">Send message</button>
           </form>
         </div>
-
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ════════════════════════════════════════ FOOTER -->
   <footer>
     <div class="wrap">
       <div class="ft-inner">
-        <div class="ft-logo grad-text">Raine Pretorius</div>
-        <div class="ft-copy">&copy; 2025 Raine Pretorius. All rights reserved.</div>
+        <div class="ft-logo">Raine Pretorius</div>
+        <div class="ft-copy">&copy; 2026 Raine Pretorius</div>
         <div class="ft-links">
           <a href="#about">About</a>
           <a href="#roles">Work</a>
           <a href="#contact">Contact</a>
         </div>
+        <p class="ft-credit">Sound engineering photo: <a href="https://commons.wikimedia.org/wiki/File:DiGiCo_SD5_-_Digital_Consoles_II_-_July_2021_Live_Sound_Class_-_The_Blackbird_Academy_(2021-12-10_14.40.42)_IMG_6010-2048px.jpg" target="_blank" rel="noopener noreferrer">The Blackbird Academy</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 2.0</a>. Trail and code photos: Wikimedia Commons, CC0.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Back to Top -->
-  <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-    <i class="fas fa-arrow-up" aria-hidden="true"></i>
-  </button>
-
-  <!-- ═══ SCRIPTS ════════════════════════════════════ -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-  <script>
-    /* ── AOS ── */
-    AOS.init({ duration: 680, easing: 'ease-out-cubic', once: true, offset: 70 });
-
-    /* ── Typed.js ── */
-    new Typed('#typed', {
-      strings: [
-        'Solutions Architect.',
-        'Tech Entrepreneur.',
-        'Founder &amp; MD.',
-        'Software Engineer.',
-        'Web Developer.',
-        'Problem Solver.',
-      ],
-      typeSpeed: 52,
-      backSpeed: 28,
-      backDelay: 1900,
-      loop: true,
-      cursorChar: '|',
-    });
-
-    /* ── Scrollspy ──
-       Tracks which section is currently in view and highlights
-       the matching nav link with the .active class.           */
-    const sections  = ['about','roles','skills','timeline','hobbies','contact']
-      .map(id => document.getElementById(id)).filter(Boolean);
-    const navLinks  = document.querySelectorAll('.nav-links a[data-section]');
-
-    function setActive(id) {
-      navLinks.forEach(a => {
-        const on = a.dataset.section === id;
-        a.classList.toggle('active', on && !a.classList.contains('nav-cta'));
-        /* keep Contact Me button styled as CTA even when active */
-        if (on && a.classList.contains('nav-cta')) {
-          a.style.boxShadow = '0 4px 20px rgba(37,99,235,.7)';
-        } else if (a.classList.contains('nav-cta')) {
-          a.style.boxShadow = '';
-        }
-      });
-    }
-
-    const navEl = document.getElementById('nav');
-    const bttEl = document.getElementById('btt');
-
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-
-      /* Navbar glass + back-to-top */
-      navEl.classList.toggle('scrolled', y > 40);
-      bttEl.classList.toggle('show', y > 400);
-
-      /* Active section detection — pick the section whose top is
-         closest to (and above) 40 % of the viewport height.      */
-      const threshold = window.innerHeight * 0.4;
-      let active = null;
-      sections.forEach(sec => {
-        if (sec.getBoundingClientRect().top <= threshold) active = sec.id;
-      });
-      setActive(active);
-    }, { passive: true });
-
-    /* ── Mobile menu ── */
-    function openMenu()  { document.getElementById('mobMenu').classList.add('open');    document.body.style.overflow = 'hidden'; }
-    function closeMenu() { document.getElementById('mobMenu').classList.remove('open'); document.body.style.overflow = '';       }
-
-    /* ── Skill bar animation ── */
-    const skillObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        e.target.querySelectorAll('.sk-fill').forEach(bar => {
-          bar.style.width = bar.dataset.w + '%';
-        });
-        skillObs.unobserve(e.target);
-      });
-    }, { threshold: 0.15 });
-    const sg = document.getElementById('skillsGrid');
-    if (sg) skillObs.observe(sg);
-
-    /* ── Contact form feedback ── */
-    function handleSubmit(form) {
-      const btn = form.querySelector('.f-submit');
-      btn.innerHTML    = '<i class="fas fa-check"></i> Sent!';
-      btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
-      btn.style.boxShadow  = '0 8px 30px rgba(16,185,129,.4)';
-      setTimeout(() => {
-        btn.innerHTML        = '<i class="fas fa-paper-plane"></i> Send Message';
-        btn.style.background = '';
-        btn.style.boxShadow  = '';
-        form.reset();
-      }, 3200);
-    }
-  </script>
-
+  <script src="/assets/vendor/motion-14.0.0.js" defer></script>
+  <script src="/assets/rp.js" defer></script>
 </body>
 </html>
